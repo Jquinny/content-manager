@@ -3,7 +3,10 @@
 {
         "name": "Go",
         // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-        "dockerFile": "./Dockerfile",
+        "dockerComposeFile": "./compose.yaml",
+        "service": "app",
+        "workspaceFolder": "/content-manager",
+        "shutdownAction": "none", // want to keep database container running
         "remoteUser": "user",
         "containerEnv": {
                 "SHELL": "/bin/bash"
@@ -25,12 +28,12 @@
         // "forwardPorts": [9000],
         // Use 'portsAttributes' to set default properties for specific forwarded ports.
         // More info: https://containers.dev/implementors/json_reference/#port-attributes
-        "portsAttributes": {
-                "9000": {
-                        "label": "Hello Remote World",
-                        "onAutoForward": "notify"
-                }
-        }
+        // "portsAttributes": {
+        //         "9000": {
+        //                 "label": "Hello Remote World",
+        //                 "onAutoForward": "notify"
+        //         }
+        // }
         // Use 'postCreateCommand' to run commands after the container is created.
         // "postCreateCommand": "go version",
 }
